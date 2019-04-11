@@ -1,0 +1,33 @@
+body {
+    /* background-image: url(../img/back-we-go-642487-unsplash.jpg); */
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#title-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: solid medium brown;
+    background-color: burlywood;
+    border-radius: 5%;
+    margin: 75px;
+}
+
+#burger-pic {
+    max-height: 150px;
+    border-radius: 50%;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

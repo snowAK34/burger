@@ -1,0 +1,38 @@
+<div id="content">
+
+    <ul id="burger-list">
+
+            {{#each burgers}}
+            {{#unless devoured}}
+                <li>
+                    
+                        {{burger_name}}
+                        <button class="eat-btn" value="{{id}}">Devour!</button>
+                    
+                    
+                </li>
+                {{/unless}}
+            {{/each}}
+
+    </ul>
+
+    <div>
+        <form action="/add" method="POST">
+            <input type="text" name="burger_name">
+            <input type="submit">
+        </form>
+    </div>
+
+        <ul id="eaten">
+            {{#each burgers}}
+                
+                    {{#if devoured}}
+                    <li>
+                        {{burger_name}}
+                        </li>
+                    {{/if}}
+                
+            {{/each}}
+        </ul>
+
+</div>

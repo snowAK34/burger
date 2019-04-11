@@ -1,17 +1,26 @@
-const mysql = require("mysql");
+const express = require("express");
+const burger = require("../models/burger.js");
+const router = express.Router();
 
-const connection = mysql createConnection ({
-    host: process.env.DB_HOST,
-    port: 3306,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: "burgers_db"
+router.get("/", function(req, res) {
+    burger.all(function(data) {
+        let resObj = {
+            burgers: data
+        };
+        res.render("index", resObj);
+    });
+}); 
+
+router.post("/add", function(req, res) {
+    burger.insert("burger_name", req.body.burger_name, function(data) {
+        res.redirect("/");
+    });
 });
 
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " +err.stack);
-        return;
-    }
-    console.log("connected as is " + connection.threadId);
+router.put("/api/burgers/:id", function(req, res) {
+    burger.update(req.params.id, function(data) {
+        res.json(data);
+    });
 });
+
+module.exports = router;
